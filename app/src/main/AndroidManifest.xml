@@ -14,11 +14,13 @@
         android:theme="@style/Theme.CareLink"
         tools:targetApi="31">
         <activity
-            android:name=".SplachScreenActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".SplachScreenActivity"
+            android:exported="true"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
