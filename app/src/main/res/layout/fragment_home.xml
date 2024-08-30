@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragment_home">
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center|left"
+                android:layout_margin="10dp"
+
+                android:paddingLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="6dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="25dp"
+                    android:textColor="@color/black"
+                    android:text="26" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="221dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Journal"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="30dp" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="58dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_baseline_person_outline_24" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <!-- Example date and day items -->
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/dateno"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_day_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+
+                            android:text="Fri"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_date_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateno"
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_33"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sat"
+
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_date_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="31"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateda"
+
+
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sat"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/tv_date_52"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white" />
+
+                         </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateno"
+
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="sun"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_date_542"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+
+                         </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateno"
+
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mon"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_date_11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/black" />
+
+                         </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateno"
+
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="tue"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_date_21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+
+                         </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateno"
+
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="wed"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_date_352"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/black" />
+
+                         </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateno"
+
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="thur"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_date_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/black" />
+
+                         </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateno"
+
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="fri"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_date_42"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateno"
+
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="sat"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_date_1232"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="8"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+
+                         </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateno"
+
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="sun"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_date_32"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/black" />
+
+                         </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/dateno"
+
+                        android:padding="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_day_11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mon"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="14dp"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/tv_date_122"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/white" />
+
+                         </LinearLayout>
+
+                    <!-- Add more date and day items here -->
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
