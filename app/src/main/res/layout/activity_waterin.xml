@@ -42,31 +42,32 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="219dp"
-                android:gravity="center"
+                android:layout_margin="15dp"
+                android:background="@drawable/calba"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="235dp"
+                    android:layout_width="164dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:padding="10dp">
 
                     <FrameLayout
-                        android:layout_width="191dp"
-                        android:layout_height="195dp">
+                        android:layout_width="153dp"
+                        android:layout_height="142dp">
 
                         <com.mikhaellopez.circularprogressbar.CircularProgressBar
                             android:id="@+id/c"
-                            android:layout_width="179dp"
-                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
                             app:cpb_background_progressbar_color="#b6bbd8"
                             app:cpb_background_progressbar_width="10dp"
                             app:cpb_progress="20"
                             app:cpb_progress_direction="to_right"
                             app:cpb_progress_max="100"
-                            app:cpb_progressbar_color="#FFEB3B"
+                            app:cpb_progressbar_color="#FFFFFF"
                             app:cpb_progressbar_width="20dp"
                             app:cpb_round_border="true" />
 
@@ -75,11 +76,11 @@
 
                             android:id="@+id/progress_text"
                             android:layout_width="wrap_content"
-                            android:layout_height="37dp"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
 
-                            android:text="24L"
-                            android:textColor="#000000"
+                            android:text="24%"
+                            android:textColor="#FFFFFF"
                             android:textSize="20sp" />
 
                         <!-- Second Text -->
@@ -90,14 +91,37 @@
                     </FrameLayout>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="Measure Your Water Intake"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="Your, Daily, Weekly Report"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_height="38dp"
+            android:layout_margin="15dp"
             android:orientation="horizontal">
 
             <Button
@@ -132,23 +156,29 @@
                 android:background="@drawable/buba"
                 android:text="Weekly"
                 android:textColor="@color/white" />
-
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="303dp"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton2"
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ch" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="7dp"
-            android:backgroundTint="@color/white"
-            android:layout_gravity="bottom|end"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_add_24" />
+            android:layout_margin="15dp"
+            android:background="@drawable/buba"
+            android:backgroundTint="#FFB17A"
+            android:textColor="@color/white"
+            android:text="Add" />
+
 
     </LinearLayout>
 

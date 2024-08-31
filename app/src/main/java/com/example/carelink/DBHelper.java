@@ -52,9 +52,65 @@ public class DBHelper extends SQLiteOpenHelper {
         } else {
             // If no record exists for the date, insert a new one
             contentValues.put("date", date);
-            contentValues.put("calories", caloriesToAdd);
+            contentValues.put("cal" +
+                    "ories", caloriesToAdd);
             contentValues.put("water", 0);
             contentValues.put("steps", 0);
+            contentValues.put("sleep", 0);
+            long result = db.insert("health_data", null, contentValues);
+            cursor.close();
+            return result != -1;
+        }
+    }
+
+    public Boolean addWater(String date, int caloriesToAdd) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        // Retrieve current calories
+        Cursor cursor = db.rawQuery("SELECT water FROM health_data WHERE date = ?", new String[]{date});
+        if (cursor.moveToFirst()) {
+            int currentCalories = cursor.getInt(0);
+            int newCalories = currentCalories + caloriesToAdd;
+
+            // Update calories
+            contentValues.put("water", newCalories);
+            int rowsAffected = db.update("health_data", contentValues, "date = ?", new String[]{date});
+            cursor.close();
+            return rowsAffected > 0;
+        } else {
+            // If no record exists for the date, insert a new one
+            contentValues.put("date", date);
+            contentValues.put("calories", 0);
+            contentValues.put("water",  caloriesToAdd);
+            contentValues.put("steps", 0);
+            contentValues.put("sleep", 0);
+            long result = db.insert("health_data", null, contentValues);
+            cursor.close();
+            return result != -1;
+        }
+    }
+    public Boolean addSteps(String date, int caloriesToAdd) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        // Retrieve current calories
+        Cursor cursor = db.rawQuery("SELECT steps FROM health_data WHERE date = ?", new String[]{date});
+        if (cursor.moveToFirst()) {
+            int currentCalories = cursor.getInt(0);
+            int newCalories = currentCalories + caloriesToAdd;
+
+            // Update calories
+            contentValues.put("steps", newCalories);
+            int rowsAffected = db.update("health_data", contentValues, "date = ?", new String[]{date});
+            cursor.close();
+            return rowsAffected > 0;
+        } else {
+            // If no record exists for the date, insert a new one
+            contentValues.put("date", date);
+            contentValues.put("calories", 0);
+            contentValues.put("water",  0);
+            contentValues.put("steps", caloriesToAdd);
             contentValues.put("sleep", 0);
             long result = db.insert("health_data", null, contentValues);
             cursor.close();
