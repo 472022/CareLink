@@ -466,6 +466,7 @@
 
                 <FrameLayout
                     android:layout_width="231dp"
+                    android:id="@+id/ci"
                     android:layout_height="232dp">
 
                     <com.mikhaellopez.circularprogressbar.CircularProgressBar

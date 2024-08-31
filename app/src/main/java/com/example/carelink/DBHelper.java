@@ -225,5 +225,26 @@ public class DBHelper extends SQLiteOpenHelper {
         long result = MyDB.insert("workout_plan", null, contentValues);
         return result != -1;
     }
+    public int[] getTaskCompletionStats() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Query to count total tasks
+        Cursor totalTasksCursor = db.rawQuery("SELECT COUNT(*) FROM workout_plan", null);
+        int totalTasks = 0;
+        if (totalTasksCursor.moveToFirst()) {
+            totalTasks = totalTasksCursor.getInt(0);
+        }
+        totalTasksCursor.close();
+
+        // Query to count completed tasks
+        Cursor completedTasksCursor = db.rawQuery("SELECT COUNT(*) FROM workout_plan WHERE is_completed = 1", null);
+        int completedTasks = 0;
+        if (completedTasksCursor.moveToFirst()) {
+            completedTasks = completedTasksCursor.getInt(0);
+        }
+        completedTasksCursor.close();
+
+        return new int[]{totalTasks, completedTasks};
+    }
 
 }
