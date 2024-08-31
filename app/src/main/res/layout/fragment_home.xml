@@ -525,6 +525,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/cal"
                         android:layout_width="151dp"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
@@ -555,6 +556,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/wat"
                         android:layout_width="151dp"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
@@ -591,6 +593,7 @@
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal">
                     <LinearLayout
+                        android:id="@+id/ste"
                         android:layout_width="151dp"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
@@ -620,6 +623,7 @@
 
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/sle"
                         android:layout_width="151dp"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"

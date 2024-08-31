@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cal">
+    tools:context=".waterin">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,28 +38,29 @@
                 android:paddingLeft="15dp"
                 android:fontFamily="@font/baloo"
                 android:textColor="@color/black"
-                android:text="Calori Count" />
+                android:text="Water Intake" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="219dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="164dp"
+                    android:layout_width="235dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:padding="10dp">
 
                     <FrameLayout
-                        android:layout_width="153dp"
-                        android:layout_height="142dp">
+                        android:layout_width="191dp"
+                        android:layout_height="195dp">
 
                         <com.mikhaellopez.circularprogressbar.CircularProgressBar
                             android:id="@+id/c"
-                            android:layout_width="match_parent"
-                            android:layout_height="140dp"
+                            android:layout_width="179dp"
+                            android:layout_height="match_parent"
                             app:cpb_background_progressbar_color="#b6bbd8"
                             app:cpb_background_progressbar_width="10dp"
                             app:cpb_progress="20"
@@ -74,10 +75,10 @@
 
                             android:id="@+id/progress_text"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="37dp"
                             android:layout_gravity="center"
 
-                            android:text="24%"
+                            android:text="24L"
                             android:textColor="#000000"
                             android:textSize="20sp" />
 
@@ -89,34 +90,6 @@
                     </FrameLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:text="Target Calories            2000"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:id="@+id/textView11"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:text="Calories Consume       2000"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:id="@+id/textView12"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:text="Calories Burns              2000"
-                        android:textColor="@color/black"/>
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -131,35 +104,37 @@
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/buba"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
-                android:textColor="@color/white"
                 android:layout_weight="1"
-                android:text="Daily" />
+                android:background="@drawable/buba"
+                android:text="Daily"
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/buba"
                 android:layout_marginRight="5dp"
-                android:textColor="@color/white"
                 android:layout_weight="1"
-                android:text="Monthly" />
+                android:background="@drawable/buba"
+                android:text="Monthly"
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/buba"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@color/white"
                 android:layout_weight="1"
-                android:text="Weekly" />
+                android:background="@drawable/buba"
+                android:text="Weekly"
+                android:textColor="@color/white" />
+
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="303dp"
@@ -174,7 +149,6 @@
             android:layout_gravity="bottom|end"
             android:clickable="true"
             app:srcCompat="@drawable/ic_baseline_add_24" />
-
 
     </LinearLayout>
 

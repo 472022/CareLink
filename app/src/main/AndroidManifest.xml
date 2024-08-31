@@ -16,8 +16,18 @@
         android:theme="@style/Theme.CareLink"
         tools:targetApi="31">
         <activity
-            android:name=".cal"
+            android:name=".sleep"
             android:exported="false" />
+        <activity
+            android:name=".steps"
+            android:exported="false" />
+        <activity
+            android:name=".waterin"
+            android:exported="false" />
+        <activity
+            android:name=".cal"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".tasks"
             android:exported="false" />

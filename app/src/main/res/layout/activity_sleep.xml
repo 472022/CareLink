@@ -38,11 +38,12 @@
                 android:paddingLeft="15dp"
                 android:fontFamily="@font/baloo"
                 android:textColor="@color/black"
-                android:text="Calori Count" />
+                android:text="Sleep Hours Count" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -89,34 +90,6 @@
                     </FrameLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:text="Target Calories            2000"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:id="@+id/textView11"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:text="Calories Consume       2000"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:id="@+id/textView12"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:text="Calories Burns              2000"
-                        android:textColor="@color/black"/>
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
