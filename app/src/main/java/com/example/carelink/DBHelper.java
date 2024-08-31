@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("CREATE TABLE users(name TEXT, age INTEGER, gender TEXT, weight REAL, height REAL, is_logged_in INTEGER DEFAULT 0)");
         MyDB.execSQL("CREATE TABLE login(email TEXT PRIMARY KEY, password TEXT)");
         MyDB.execSQL("CREATE TABLE health_data(date TEXT PRIMARY KEY, calories INTEGER, water INTEGER, steps INTEGER, sleep INTEGER)");
-
+        MyDB.execSQL("CREATE TABLE reminders(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, message TEXT, time TEXT, is_completed INTEGER DEFAULT 0)");
         // Create tables for diet plan and workout plan
         MyDB.execSQL("CREATE TABLE diet_plan(id INTEGER PRIMARY KEY AUTOINCREMENT, user_name TEXT, meal_type TEXT, food_items TEXT)");
         MyDB.execSQL("CREATE TABLE workout_plan(id INTEGER PRIMARY KEY AUTOINCREMENT, user_name TEXT, exercise_name TEXT, reps INTEGER, sets INTEGER, is_completed INTEGER DEFAULT 0)");
@@ -117,7 +117,47 @@ public class DBHelper extends SQLiteOpenHelper {
             return result != -1;
         }
     }
+    public Boolean addSleep(String date, int caloriesToAdd) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
 
+        // Retrieve current calories
+        Cursor cursor = db.rawQuery("SELECT sleep FROM health_data WHERE date = ?", new String[]{date});
+        if (cursor.moveToFirst()) {
+            int currentCalories = cursor.getInt(0);
+            int newCalories = currentCalories + caloriesToAdd;
+
+            // Update calories
+            contentValues.put("sleep", newCalories);
+            int rowsAffected = db.update("health_data", contentValues, "date = ?", new String[]{date});
+            cursor.close();
+            return rowsAffected > 0;
+        } else {
+            // If no record exists for the date, insert a new one
+            contentValues.put("date", date);
+            contentValues.put("calories", 0);
+            contentValues.put("water",  0);
+            contentValues.put("steps", 0);
+            contentValues.put("sleep", caloriesToAdd);
+            long result = db.insert("health_data", null, contentValues);
+            cursor.close();
+            return result != -1;
+        }
+    }
+    public Boolean insertReminder(String title, String message, String time) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("title", title);
+        contentValues.put("message", message);
+        contentValues.put("time", time);
+        long result = MyDB.insert("reminders", null, contentValues);
+        return result != -1;
+    }
+
+    public Cursor getAllReminders() {
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+        return MyDB.rawQuery("SELECT * FROM reminders", null);
+    }
     // Method to decrease calories for a specific date
     public Boolean decreaseCalories(String date, int caloriesToSubtract) {
         SQLiteDatabase db = this.getWritableDatabase();
