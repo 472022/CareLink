@@ -1,6 +1,7 @@
 package com.example.carelink;
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +30,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        boolean isFirstTime = sharedPreferences.getBoolean("isFirstTime", true);
+
+        if (isFirstTime) {
+            // Launch the profile setup activity only if it's the first time
+            Intent intent = new Intent(MainActivity.this, set.class);
+            startActivity(intent);
+        } else {
+            // Otherwise, proceed as usual
+            // Your existing code to continue to the main part of the app
+        }
+
+
         replaceFragment(new fragment_home());
         binding.bottomNavigationView.setBackground(null);
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
