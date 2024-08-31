@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_subscription">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Title EditText -->
+    <EditText
+        android:id="@+id/titleEditText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:hint="Reminder Title"
+        android:inputType="text"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"/>
 
-</FrameLayout>
+    <!-- Message EditText -->
+    <EditText
+        android:id="@+id/messageEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Reminder Message"
+        android:inputType="text"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- TimePicker for selecting time -->
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:timePickerMode="spinner"
+        />
+
+    <!-- Add Reminder Button -->
+    <Button
+        android:id="@+id/addReminderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Reminder"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- ListView to Display Reminders -->
+    <ListView
+        android:id="@+id/remindersListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:padding="10dp"/>
+
+</LinearLayout>
