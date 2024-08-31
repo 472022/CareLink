@@ -63,6 +63,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+
     // Method to check user login credentials
     public Boolean checkUser(String email, String password) {
         SQLiteDatabase MyDB = this.getReadableDatabase();
@@ -112,4 +113,96 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase MyDB = this.getReadableDatabase();
         return MyDB.rawQuery("SELECT * FROM health_data", null);
     }
+    // Method to insert a diet plan for a specific user and goal
+    public Boolean insertDietPlan(String userName, String goal) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        // Sample diet plans based on goals
+        String mealType;
+        String foodItems;
+
+        switch (goal.toLowerCase()) {
+            case "weight gain":
+                mealType = "Breakfast";
+                foodItems = "Oats, Milk, Banana";
+                break;
+            case "weight loss":
+                mealType = "Lunch";
+                foodItems = "Grilled Chicken, Salad";
+                break;
+            case "bulk":
+                mealType = "Dinner";
+                foodItems = "Steak, Sweet Potato";
+                break;
+            case "hair loss":
+                mealType = "Snacks";
+                foodItems = "Nuts, Berries";
+                break;
+            case "boost immunity":
+                mealType = "Breakfast";
+                foodItems = "Citrus Fruits, Yogurt";
+                break;
+            default:
+                return false; // If goal is not recognized
+        }
+
+        contentValues.put("user_name", userName);
+        contentValues.put("meal_type", mealType);
+        contentValues.put("food_items", foodItems);
+
+        long result = MyDB.insert("diet_plan", null, contentValues);
+        return result != -1;
+    }
+
+    // Method to insert a workout plan for a specific user and goal
+    public Boolean insertWorkoutPlan(String userName, String goal) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        // Sample workout plans based on goals
+        String exerciseName;
+        int reps;
+        int sets;
+
+        switch (goal.toLowerCase()) {
+            case "weight gain":
+                exerciseName = "Squats";
+                reps = 10;
+                sets = 4;
+                break;
+            case "weight loss":
+                exerciseName = "Running";
+                reps = 30; // in minutes
+                sets = 1;
+                break;
+            case "bulk":
+                exerciseName = "Bench Press";
+                reps = 8;
+                sets = 4;
+                break;
+            case "hair loss":
+                exerciseName = "Scalp Massage";
+                reps = 10; // in minutes
+                sets = 1;
+                break;
+            case "boost immunity":
+                exerciseName = "Yoga";
+                reps = 15; // in minutes
+                sets = 1;
+                break;
+            default:
+                return false; // If goal is not recognized
+        }
+
+        contentValues.put("user_name", userName);
+        contentValues.put("exercise_name", exerciseName);
+        contentValues.put("reps", reps);
+        contentValues.put("sets", sets);
+
+        long result = MyDB.insert("workout_plan", null, contentValues);
+        return result != -1;
+    }
+
 }
+
