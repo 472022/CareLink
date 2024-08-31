@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/contact_us_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Us"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/baloo"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/general_inquiries_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="General Inquiries"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: prathameshhalale1234@gmail"
+            android:autoLink="email"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:autoLink="phone"
+            android:paddingBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/support_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Support"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/support_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Support Email: abhijitmulik02@gmail.com"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/support_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Support Email.com= mulikparth@@gmail.com"
+            android:autoLink="phone"
+            android:paddingBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/address_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+    </LinearLayout>
+</ScrollView>

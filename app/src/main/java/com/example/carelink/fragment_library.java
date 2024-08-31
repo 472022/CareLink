@@ -1,5 +1,6 @@
 package com.example.carelink;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +18,8 @@ import android.view.ViewGroup;
  */
 public class fragment_library extends Fragment {
 
+    Button b1;
+    LinearLayout ab,co,pr;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -55,10 +60,64 @@ public class fragment_library extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_library, container, false);
+        View view = inflater.inflate(R.layout.fragment_library, container, false);
+
+        // Find the button by its ID
+        b1 = view.findViewById(R.id.button5);
+        ab = view.findViewById(R.id.abo);
+        co = view.findViewById(R.id.cont);
+        pr = view.findViewById(R.id.priva);
+
+
+        ab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create an intent to start the login activity
+                Intent intent = new Intent(getActivity(), aboutus.class);
+                startActivity(intent);
+                // Finish the current activity
+
+            }
+        });
+        co.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create an intent to start the login activity
+                Intent intent = new Intent(getActivity(), contact.class);
+                startActivity(intent);
+
+            }
+        });
+        pr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create an intent to start the login activity
+                Intent intent = new Intent(getActivity(), privacy.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+        // Set an OnClickListener to the button
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create an intent to start the login activity
+                Intent intent = new Intent(getActivity(), login.class);
+                startActivity(intent);
+                // Finish the current activity
+                getActivity().finish();
+            }
+        });
+
+        // Return the inflated view
+        return view;
     }
+
 }

@@ -5,9 +5,33 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/textViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:drawableEnd="@drawable/ic_baseline_add_24"
+        android:drawableTint="@color/black"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="20dp"
+        android:text=""
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/textViewWorkoutLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/baloo"
+        android:paddingLeft="20dp"
+        android:text="Workout Plan"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
     <ListView
         android:id="@+id/workoutTodoListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:choiceMode="multipleChoice" />
+
 </LinearLayout>

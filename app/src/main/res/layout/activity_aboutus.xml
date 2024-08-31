@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".aboutus">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="About Us "
+                android:textColor="@color/black"
+                android:fontFamily="@font/baloo"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:text="About us "
+                android:textColor="@color/black"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Welcome to Care Link, your trusted partner in managing and improving your health. We believe that healthcare should be accessible, personalized, and empowering. Our app is designed to bring top-notch medical resources and support right to your fingertips, so you can take control of your health journey with confidence. "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="left"
+                android:textColor="@color/black"
+                android:text="Our Mission
+    "
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="At Care Link, our mission is to revolutionize the way you experience healthcare. We are committed to providing innovative solutions that simplify health management, connect you with the best healthcare providers, and offer personalized insights tailored to your unique needs. We strive to make healthcare more proactive, preventive, and patient-centered. "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:textColor="@color/black"
+                android:text="What We Offer"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- Comprehensive Health Tracking: Monitor your health metrics, track your medications, and manage your wellness goals all in one place. - Virtual Consultations: Connect with certified healthcare professionals through secure video calls and chat, from the comfort of your home. - Personalized Health Insights: Receive customized advice, reminders, and health tips based on your individual health data. - 24/7 Support: Access a wide range of medical information and support services anytime, anywhere. "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:text="Why Choose Us?"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- User-Centric Design: We prioritize your convenience and ease of use, ensuring that our app is intuitive and user-friendly. - Data Security: Your privacy is our top priority. We use state-of-the-art encryption to keep your personal health information safe and secure. - Expert Team: Our app is developed and continuously updated by a team of experienced healthcare professionals and tech experts who are passionate about enhancing your health and well-being.  "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Our Vision"
+                android:layout_marginTop="10dp"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="We envision a future where everyone has access to quality healthcare, no matter where they are. Our goal is to break down barriers to healthcare and empower individuals to live healthier, happier lives through technology.Feel free to customize this draft to better fit the specific features and values of your app "
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

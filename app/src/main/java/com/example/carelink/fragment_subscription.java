@@ -1,20 +1,29 @@
 package com.example.carelink;
 
-import android.app.AlarmManager;
+import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.AlarmManager;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
@@ -28,12 +37,10 @@ public class fragment_subscription extends Fragment {
 
     private static final String CHANNEL_ID = "my_channel";
     private NotificationManager notificationManager;
-    private EditText titleEditText, messageEditText;
-    private TimePicker timePicker;
-    private Button addReminderButton;
     private ListView remindersListView;
     private ArrayList<String> remindersList;
     private ArrayAdapter<String> remindersAdapter;
+    private DBHelper dbHelper;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,25 +52,24 @@ public class fragment_subscription extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_subscription, container, false);
 
+        dbHelper = new DBHelper(getContext());
         notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 
-        titleEditText = view.findViewById(R.id.titleEditText);
-        messageEditText = view.findViewById(R.id.messageEditText);
-        timePicker = view.findViewById(R.id.timePicker);
-        addReminderButton = view.findViewById(R.id.addReminderButton);
         remindersListView = view.findViewById(R.id.remindersListView);
+        TextView addReminderTextView = view.findViewById(R.id.textView14);
 
-        // Initialize the ArrayList and ArrayAdapter for the ListView
         remindersList = new ArrayList<>();
-        remindersAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, remindersList);
+        loadReminders();
+
+        remindersAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_multiple_choice, remindersList);
         remindersListView.setAdapter(remindersAdapter);
 
         createNotificationChannel();
 
-        addReminderButton.setOnClickListener(new View.OnClickListener() {
+        addReminderTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setReminder();
+                showDialog();
             }
         });
 
@@ -83,31 +89,78 @@ public class fragment_subscription extends Fragment {
         }
     }
 
-    private void setReminder() {
-        String title = titleEditText.getText().toString();
-        String message = messageEditText.getText().toString();
+    private void showDialog() {
+        final Dialog dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.activity_bottom5);
 
-        int hour = timePicker.getCurrentHour();
-        int minute = timePicker.getCurrentMinute();
+        Button add = dialog.findViewById(R.id.addWorkoutBtn);
+        EditText titleEditText = dialog.findViewById(R.id.titleEditText);
+        EditText messageEditText = dialog.findViewById(R.id.messageEditText);
+        TimePicker timePicker = dialog.findViewById(R.id.timePicker);
 
-        // Create a Calendar object for the time set
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, hour);
-        calendar.set(Calendar.MINUTE, minute);
-        calendar.set(Calendar.SECOND, 0);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String title = titleEditText.getText().toString();
+                String message = messageEditText.getText().toString();
+                int hour = timePicker.getCurrentHour();
+                int minute = timePicker.getCurrentMinute();
 
-        // Check if the selected time is before the current time and add a day to it
-        if (calendar.getTimeInMillis() < System.currentTimeMillis()) {
-            calendar.add(Calendar.DAY_OF_YEAR, 1);
-        }
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.HOUR_OF_DAY, hour);
+                calendar.set(Calendar.MINUTE, minute);
+                calendar.set(Calendar.SECOND, 0);
 
-        // Add the reminder to the list and notify the adapter
-        String reminder = "Title: " + title + "\nMessage: " + message + "\nTime: " + hour + ":" + String.format("%02d", minute);
-        remindersList.add(reminder);
-        remindersAdapter.notifyDataSetChanged();
+                if (calendar.getTimeInMillis() < System.currentTimeMillis()) {
+                    calendar.add(Calendar.DAY_OF_YEAR, 1);
+                }
 
-        // Schedule the notification
+                addReminder(title, message, calendar);
+                loadReminders();
+                remindersAdapter.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+    }
+
+    private void addReminder(String title, String message, Calendar calendar) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("title", title);
+        contentValues.put("message", message);
+        contentValues.put("time", calendar.getTimeInMillis());
+
+        db.insert("reminders", null, contentValues);
+
         scheduleNotification(calendar, title, message);
+    }
+
+    private void loadReminders() {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT title, message, time FROM reminders", null);
+        remindersList.clear();
+        if (cursor.moveToFirst()) {
+            do {
+                String title = cursor.getString(0);
+                String message = cursor.getString(1);
+                long timeInMillis = cursor.getLong(2);
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(timeInMillis);
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+
+                remindersList.add("Title: " + title + "\nMessage: " + message + "\nTime: " + hour + ":" + String.format("%02d", minute));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
     }
 
     private void scheduleNotification(Calendar calendar, String title, String message) {

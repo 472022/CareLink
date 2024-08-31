@@ -60,6 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:id="@+id/abo"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -88,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:id="@+id/cont"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -114,6 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:id="@+id/priva"
                 android:orientation="horizontal">
 
                 <ImageView

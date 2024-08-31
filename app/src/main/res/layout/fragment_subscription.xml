@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -6,52 +5,35 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Title EditText -->
-    <EditText
-        android:id="@+id/titleEditText"
+    <TextView
+        android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Reminder Title"
-        android:inputType="text"
-        android:padding="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:drawableEnd="@drawable/ic_baseline_add_24"
+        android:drawableTint="@color/black"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="20dp"
+        android:text=""
+        android:textSize="25dp" />
 
-    <!-- Message EditText -->
-    <EditText
-        android:id="@+id/messageEditText"
+    <TextView
+        android:id="@+id/reminderTitleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Reminder Message"
-        android:inputType="text"
-        android:padding="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/baloo"
+        android:paddingLeft="20dp"
+        android:text="Reminders"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
 
-    <!-- TimePicker for selecting time -->
-    <TimePicker
-        android:id="@+id/timePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:timePickerMode="spinner"
-        />
-
-    <!-- Add Reminder Button -->
-    <Button
-        android:id="@+id/addReminderButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Reminder"
-        android:padding="10dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"/>
-
-    <!-- ListView to Display Reminders -->
     <ListView
         android:id="@+id/remindersListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:choiceMode="multipleChoice"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
         android:padding="10dp"/>
-
 </LinearLayout>
