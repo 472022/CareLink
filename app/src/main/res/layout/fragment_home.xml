@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -25,28 +26,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:gravity="center|left"
                 android:layout_margin="10dp"
+                android:gravity="center|left"
 
-                android:paddingLeft="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="6dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="25dp"
+                    android:text="26"
                     android:textColor="@color/black"
-                    android:text="26" />
+                    android:textSize="25dp" />
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="221dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Journal"
                     android:gravity="center"
+                    android:fontFamily="@font/baloo"
+                    android:text="Journal"
                     android:textColor="@color/black"
                     android:textSize="30dp" />
 
@@ -103,248 +105,253 @@
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@drawable/dateno"
-                        android:padding="10dp"
                         android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:background="@drawable/dateno"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_33"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sat"
-
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black" />
+
+                            android:text="Sat"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="31"
-                            android:textStyle="bold"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
                         android:background="@drawable/dateda"
 
 
-                        android:padding="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sat"
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/white" />
+                            android:text="Sat"
+                            android:textColor="@color/white"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_52"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/white" />
+                            android:textStyle="bold" />
 
-                         </LinearLayout>
+                         
+                    </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
                         android:background="@drawable/dateno"
 
-                        android:padding="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="sun"
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black" />
+                            android:text="sun"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_542"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
-                         </LinearLayout>
-
+                         
+                    </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
                         android:background="@drawable/dateno"
 
-                        android:padding="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="mon"
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black" />
+                            android:text="mon"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
-                            android:textStyle="bold"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
-                         </LinearLayout>
+                         
+                    </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
                         android:background="@drawable/dateno"
 
-                        android:padding="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="tue"
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black" />
+                            android:text="tue"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_21"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
-                         </LinearLayout>
-
+                         
+                    </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
                         android:background="@drawable/dateno"
 
-                        android:padding="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="wed"
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black" />
+                            android:text="wed"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_352"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="5"
-                            android:textStyle="bold"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
-                         </LinearLayout>
+                         
+                    </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
                         android:background="@drawable/dateno"
 
-                        android:padding="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="thur"
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black" />
+                            android:text="thur"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="6"
-                            android:textStyle="bold"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
-                         </LinearLayout>
+                         
+                    </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
                         android:background="@drawable/dateno"
 
-                        android:padding="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="fri"
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black" />
+                            android:text="fri"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_42"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="7"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -352,99 +359,298 @@
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
                         android:background="@drawable/dateno"
 
-                        android:padding="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="sat"
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black" />
+                            android:text="sat"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_1232"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="8"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
-                         </LinearLayout>
+                         
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
                         android:background="@drawable/dateno"
 
-                        android:padding="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="sun"
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black" />
+                            android:text="sun"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_32"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="9"
-                            android:textStyle="bold"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
-                         </LinearLayout>
-
+                         
+                    </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="54dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp"
                         android:background="@drawable/dateno"
 
-                        android:padding="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:id="@+id/tv_day_11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="mon"
                             android:layout_marginBottom="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/white" />
+                            android:text="mon"
+                            android:textColor="@color/white"
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tv_date_122"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="10"
-                            android:textStyle="bold"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
-                            android:textColor="@color/white" />
+                            android:textStyle="bold" />
 
-                         </LinearLayout>
+                    </LinearLayout>
 
                     <!-- Add more date and day items here -->
 
                 </LinearLayout>
             </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="306dp"
+
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="231dp"
+                    android:layout_height="232dp">
+
+                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:id="@+id/c"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cpb_background_progressbar_color="#b6bbd8"
+                        app:cpb_background_progressbar_width="17dp"
+                        app:cpb_progress="20"
+                        app:cpb_progress_direction="to_right"
+                        app:cpb_progress_max="100"
+                        app:cpb_progressbar_color="#FF5722"
+                        app:cpb_progressbar_width="28dp"
+                        app:cpb_round_border="true" />
+
+                    <!-- First Text -->
+                    <TextView
+
+                        android:id="@+id/progress_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|center"
+                        android:layout_marginTop="70dp"
+                        android:text="Current Phase"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <!-- Second Text -->
+                    <TextView
+                        android:id="@+id/progress_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:text="Day 1"
+                        android:textColor="#FF5722"
+
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <!-- Third Text -->
+
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="108dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="151dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/menuba"
+                        android:elevation="20dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/imageView22"
+                            android:layout_width="42dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/cal" />
+
+                        <TextView
+                            android:id="@+id/textView31"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingLeft="20dp"
+                            android:text="Calori"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="151dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/menuba"
+                        android:elevation="20dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/imageView21"
+                            android:layout_width="42dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/water" />
+
+                        <TextView
+                            android:id="@+id/textView33"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingLeft="20dp"
+                            android:text="Water"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="108dp"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="151dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/menuba"
+                        android:elevation="20dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/imageView122"
+                            android:layout_width="42dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/steps" />
+
+                        <TextView
+                            android:id="@+id/textView323"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingLeft="20dp"
+                            android:text="Steps"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="151dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/menuba"
+                        android:elevation="20dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="42dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/sleep" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingLeft="20dp"
+                            android:text="Sleep"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

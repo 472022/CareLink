@@ -18,6 +18,9 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("CREATE TABLE users(name TEXT, age INTEGER, gender TEXT, weight REAL, height REAL)");
         MyDB.execSQL("CREATE TABLE login(email TEXT PRIMARY KEY, password TEXT)");
 
+        // Create table for health data (calories, water, steps, sleep)
+        MyDB.execSQL("CREATE TABLE health_data(date TEXT PRIMARY KEY, calories INTEGER, water INTEGER, steps INTEGER, sleep INTEGER)");
+
         // Example of inserting a demo record into the users table
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", "John Doe");
@@ -33,6 +36,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
         MyDB.execSQL("DROP TABLE IF EXISTS users");
         MyDB.execSQL("DROP TABLE IF EXISTS login");
+        MyDB.execSQL("DROP TABLE IF EXISTS health_data");
         onCreate(MyDB);
     }
 
@@ -70,5 +74,42 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getUserData() {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         return MyDB.rawQuery("SELECT * FROM users", null);
+    }
+
+    // Method to insert health data
+    public Boolean insertHealthData(String date, int calories, int water, int steps, int sleep) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("date", date);
+        contentValues.put("calories", calories);
+        contentValues.put("water", water);
+        contentValues.put("steps", steps);
+        contentValues.put("sleep", sleep);
+        long result = MyDB.insert("health_data", null, contentValues);
+        return result != -1;
+    }
+
+    // Method to update health data for a specific date
+    public Boolean updateHealthData(String date, int calories, int water, int steps, int sleep) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("calories", calories);
+        contentValues.put("water", water);
+        contentValues.put("steps", steps);
+        contentValues.put("sleep", sleep);
+        long result = MyDB.update("health_data", contentValues, "date = ?", new String[]{date});
+        return result != -1;
+    }
+
+    // Method to retrieve health data for a specific date
+    public Cursor getHealthData(String date) {
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+        return MyDB.rawQuery("SELECT * FROM health_data WHERE date = ?", new String[]{date});
+    }
+
+    // Method to retrieve all health data
+    public Cursor getAllHealthData() {
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+        return MyDB.rawQuery("SELECT * FROM health_data", null);
     }
 }
