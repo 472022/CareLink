@@ -8,39 +8,61 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DBNAME = "users.db";
+    private static final int DATABASE_VERSION = 2;  // Incremented version number
 
     public DBHelper(Context context) {
-        super(context, DBNAME, null, 1);
+        super(context, DBNAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("CREATE TABLE users(name TEXT, age INTEGER, gender TEXT, weight REAL, height REAL)");
+        MyDB.execSQL("CREATE TABLE users(name TEXT, age INTEGER, gender TEXT, weight REAL, height REAL, is_logged_in INTEGER DEFAULT 0)");
         MyDB.execSQL("CREATE TABLE login(email TEXT PRIMARY KEY, password TEXT)");
-
-        // Create table for health data (calories, water, steps, sleep)
         MyDB.execSQL("CREATE TABLE health_data(date TEXT PRIMARY KEY, calories INTEGER, water INTEGER, steps INTEGER, sleep INTEGER)");
 
-        // Example of inserting a demo record into the users table
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("name", "John Doe");
-        contentValues.put("age", 30);
-        contentValues.put("gender", "Male");
-        contentValues.put("weight", 70.5);
-        contentValues.put("height", 175.0);
-
-        long result = MyDB.insert("users", null, contentValues);
+        // Create tables for diet plan and workout plan
+        MyDB.execSQL("CREATE TABLE diet_plan(id INTEGER PRIMARY KEY AUTOINCREMENT, user_name TEXT, meal_type TEXT, food_items TEXT)");
+        MyDB.execSQL("CREATE TABLE workout_plan(id INTEGER PRIMARY KEY AUTOINCREMENT, user_name TEXT, exercise_name TEXT, reps INTEGER, sets INTEGER, is_completed INTEGER DEFAULT 0)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
-        MyDB.execSQL("DROP TABLE IF EXISTS users");
-        MyDB.execSQL("DROP TABLE IF EXISTS login");
-        MyDB.execSQL("DROP TABLE IF EXISTS health_data");
-        onCreate(MyDB);
+        if (oldVersion < 2) {
+            // Add the is_logged_in column to the users table
+            MyDB.execSQL("ALTER TABLE users ADD COLUMN is_logged_in INTEGER DEFAULT 0");
+        }
+        // Add other upgrade logic if needed
     }
 
-    // Method to insert user data (excluding email and password)
+    // Method to set a user as logged in
+    public void setUserLoggedIn(String userName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("is_logged_in", 1);
+        db.update("users", values, "name = ?", new String[]{userName});
+    }
+
+    // Method to log out a user
+    public void logOutUser(String userName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("is_logged_in", 0);
+        db.update("users", values, "name = ?", new String[]{userName});
+    }
+
+    // Method to get the name of the logged-in user
+    public String getLoggedInUserName() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String userName = null;
+        Cursor cursor = db.rawQuery("SELECT name FROM users WHERE is_logged_in = 1", null);
+        if (cursor.moveToFirst()) {
+            userName = cursor.getString(0);
+        }
+        cursor.close();
+        return userName;
+    }
+
+    // Insert user data (excluding email and password)
     public Boolean insertUserData(String name, int age, String gender, double weight, double height) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -62,7 +84,6 @@ public class DBHelper extends SQLiteOpenHelper {
         long result = MyDB.insert("login", null, contentValues);
         return result != -1;
     }
-
 
     // Method to check user login credentials
     public Boolean checkUser(String email, String password) {
@@ -113,6 +134,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase MyDB = this.getReadableDatabase();
         return MyDB.rawQuery("SELECT * FROM health_data", null);
     }
+
     // Method to insert a diet plan for a specific user and goal
     public Boolean insertDietPlan(String userName, String goal) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
@@ -205,4 +227,3 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 }
-

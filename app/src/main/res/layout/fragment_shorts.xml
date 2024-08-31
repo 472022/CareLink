@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_shorts">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Diet Plan Section -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diet Plan"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <ListView
+        android:id="@+id/dietListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:choiceMode="multipleChoice" />
+
+    <!-- Workout Plan Section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Workout Plan"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+    <ListView
+        android:id="@+id/workoutListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:choiceMode="multipleChoice" />
+
+    <!-- Add Workout Inputs Section -->
+    <EditText
+        android:id="@+id/workoutNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Workout Name"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/repsInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Reps" />
+
+    <EditText
+        android:id="@+id/setsInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sets" />
+
+    <!-- Add Workout Button -->
+    <Button
+        android:id="@+id/addWorkoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Workout"
+        android:layout_marginTop="8dp" />
+
+    <!-- Delete Selected Plans Button -->
+    <Button
+        android:id="@+id/deletePlanBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Selected Plans"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="?attr/colorAccent"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

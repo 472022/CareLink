@@ -54,7 +54,7 @@ public class set extends AppCompatActivity {
                 // Proceed to the main part of the app
                 Intent intent = new Intent(set.this, MainActivity.class);
                 startActivity(intent);
-                finish(); // Close the
+                finish(); // Close the setup activity
             }
         });
 
@@ -136,12 +136,20 @@ public class set extends AppCompatActivity {
         double weight = Double.parseDouble(weightEditText.getText().toString());
         double height = Double.parseDouble(heightEditText.getText().toString());
 
-        // Insert data into the database
+        // Insert user data into the database
         boolean isInserted = DB.insertUserData(name, age, selectedGender, weight, height);
         if (isInserted) {
-            Toast.makeText(set.this, "Data Inserted: " + goal, Toast.LENGTH_SHORT).show();
+            // Insert diet and workout plans based on the goal
+            boolean dietInserted = DB.insertDietPlan(name, goal);
+            boolean workoutInserted = DB.insertWorkoutPlan(name, goal);
+
+            if (dietInserted && workoutInserted) {
+                Toast.makeText(set.this, "Data Inserted: " + goal, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(set.this, "Plan Insertion Failed", Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Toast.makeText(set.this, "Insertion Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(set.this, "User Data Insertion Failed", Toast.LENGTH_SHORT).show();
         }
     }
 }
