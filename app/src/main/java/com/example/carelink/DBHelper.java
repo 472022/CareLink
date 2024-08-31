@@ -34,6 +34,56 @@ public class DBHelper extends SQLiteOpenHelper {
         // Add other upgrade logic if needed
     }
 
+    public Boolean addCalories(String date, int caloriesToAdd) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        // Retrieve current calories
+        Cursor cursor = db.rawQuery("SELECT calories FROM health_data WHERE date = ?", new String[]{date});
+        if (cursor.moveToFirst()) {
+            int currentCalories = cursor.getInt(0);
+            int newCalories = currentCalories + caloriesToAdd;
+
+            // Update calories
+            contentValues.put("calories", newCalories);
+            int rowsAffected = db.update("health_data", contentValues, "date = ?", new String[]{date});
+            cursor.close();
+            return rowsAffected > 0;
+        } else {
+            // If no record exists for the date, insert a new one
+            contentValues.put("date", date);
+            contentValues.put("calories", caloriesToAdd);
+            contentValues.put("water", 0);
+            contentValues.put("steps", 0);
+            contentValues.put("sleep", 0);
+            long result = db.insert("health_data", null, contentValues);
+            cursor.close();
+            return result != -1;
+        }
+    }
+
+    // Method to decrease calories for a specific date
+    public Boolean decreaseCalories(String date, int caloriesToSubtract) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        // Retrieve current calories
+        Cursor cursor = db.rawQuery("SELECT calories FROM health_data WHERE date = ?", new String[]{date});
+        if (cursor.moveToFirst()) {
+            int currentCalories = cursor.getInt(0);
+            int newCalories = Math.max(currentCalories - caloriesToSubtract, 0); // Ensure calories don't go below 0
+
+            // Update calories
+            contentValues.put("calories", newCalories);
+            int rowsAffected = db.update("health_data", contentValues, "date = ?", new String[]{date});
+            cursor.close();
+            return rowsAffected > 0;
+        } else {
+            // If no record exists for the date, do nothing
+            cursor.close();
+            return false;
+        }
+    }
     // Method to set a user as logged in
     public void setUserLoggedIn(String userName) {
         SQLiteDatabase db = this.getWritableDatabase();

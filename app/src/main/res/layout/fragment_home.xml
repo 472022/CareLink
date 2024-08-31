@@ -32,31 +32,29 @@
                 android:orientation="horizontal"
                 android:paddingLeft="10dp">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="6dp"
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="3dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="26"
-                    android:textColor="@color/black"
-                    android:textSize="25dp" />
+                    android:src="@drawable/menus" />
 
                 <TextView
                     android:id="@+id/textView2"
-                    android:layout_width="221dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:fontFamily="@font/baloo"
+                    android:gravity="center"
                     android:text="Journal"
                     android:textColor="@color/black"
-                    android:textSize="30dp" />
+                    android:textSize="20dp" />
 
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="58dp"
                     android:layout_height="40dp"
-                    app:srcCompat="@drawable/ic_baseline_person_outline_24" />
+                    app:srcCompat="@drawable/profile" />
             </LinearLayout>
 
             <HorizontalScrollView
