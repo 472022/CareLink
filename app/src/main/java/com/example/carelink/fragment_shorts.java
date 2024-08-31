@@ -1,16 +1,22 @@
 package com.example.carelink;
 
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -66,31 +72,16 @@ public class fragment_shorts extends Fragment {
             toggleWorkoutCompletion(item);
         });
 
-        Button addWorkoutBtn = view.findViewById(R.id.addWorkoutBtn);
-        EditText workoutNameInput = view.findViewById(R.id.workoutNameInput);
-        EditText repsInput = view.findViewById(R.id.repsInput);
-        EditText setsInput = view.findViewById(R.id.setsInput);
-        Button deletePlanBtn = view.findViewById(R.id.deletePlanBtn);
 
-        addWorkoutBtn.setOnClickListener(v -> {
-            String workoutName = workoutNameInput.getText().toString();
-            int reps = Integer.parseInt(repsInput.getText().toString());
-            int sets = Integer.parseInt(setsInput.getText().toString());
+        TextView re = view.findViewById(R.id.textView14);
 
-            addWorkoutPlan(workoutName, reps, sets);
-            loadWorkoutPlan();
-            workoutAdapter.notifyDataSetChanged();
+
+        re.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog();
+            }
         });
-
-        // Delete selected items from both diet and workout plans
-        deletePlanBtn.setOnClickListener(v -> {
-            deleteSelectedPlans();
-            loadDietPlan();
-            loadWorkoutPlan();
-            dietAdapter.notifyDataSetChanged();
-            workoutAdapter.notifyDataSetChanged();
-        });
-
         return view;
     }
 
@@ -173,4 +164,49 @@ public class fragment_shorts extends Fragment {
         dietListView.clearChoices();
         workoutListView.clearChoices();
     }
+
+    private void showDialog() {
+        final Dialog dialog = new Dialog(getContext()); // Use getContext() to get the correct context
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.activity_bottom4);
+
+        Button add = dialog.findViewById(R.id.addWorkoutBtn);
+        Button del = dialog.findViewById(R.id.deletePlanBtn);
+        EditText workoutNameInput = dialog.findViewById(R.id.workoutNameInput);
+        EditText repsInput = dialog.findViewById(R.id.repsInput);
+        EditText setsInput = dialog.findViewById(R.id.setsInput);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String workoutName = workoutNameInput.getText().toString();
+                int reps = Integer.parseInt(repsInput.getText().toString());
+                int sets = Integer.parseInt(setsInput.getText().toString());
+
+                addWorkoutPlan(workoutName, reps, sets);
+                loadWorkoutPlan();
+                workoutAdapter.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+        });
+
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteSelectedPlans();
+                loadDietPlan();
+                loadWorkoutPlan();
+                dietAdapter.notifyDataSetChanged();
+                workoutAdapter.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+    }
+
 }

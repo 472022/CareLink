@@ -4,12 +4,33 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="401dp"
+        android:layout_height="38dp"
+        android:drawableEnd="@drawable/ic_baseline_add_24"
+        android:drawableTint="@color/black"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="20dp"
+        android:text=""
+        android:textSize="25dp" />
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/baloo"
+        android:paddingLeft="20dp"
+        android:text="Diet Plan"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
     <!-- Diet Plan Section -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Diet Plan"
+        android:text=""
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -35,41 +56,6 @@
         android:choiceMode="multipleChoice" />
 
     <!-- Add Workout Inputs Section -->
-    <EditText
-        android:id="@+id/workoutNameInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Workout Name"
-        android:layout_marginTop="16dp" />
 
-    <EditText
-        android:id="@+id/repsInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Reps" />
-
-    <EditText
-        android:id="@+id/setsInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Sets" />
-
-    <!-- Add Workout Button -->
-    <Button
-        android:id="@+id/addWorkoutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Workout"
-        android:layout_marginTop="8dp" />
-
-    <!-- Delete Selected Plans Button -->
-    <Button
-        android:id="@+id/deletePlanBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete Selected Plans"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="?attr/colorAccent"
-        android:textColor="@android:color/white" />
 
 </LinearLayout>

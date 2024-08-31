@@ -16,7 +16,7 @@
         android:fontFamily="@font/baloo"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:text="Add Remainder" />
+        android:text="Add Task" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/catt"
+                android:id="@+id/workoutNameInput"
                 android:layout_width="359dp"
                 android:layout_height="50dp"
                 android:elevation="20dp"
@@ -58,7 +58,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/cat"
+                android:id="@+id/repsInput"
                 android:layout_width="359dp"
                 android:layout_height="50dp"
                 android:elevation="20dp"
@@ -66,7 +66,7 @@
                 android:background="@drawable/olog"
                 android:ems="10"
 
-                android:hint="Workout Names"
+                android:hint="Reps"
                 android:inputType="number"
                 android:padding="5dp"
                 android:paddingLeft="5dp"
@@ -77,7 +77,31 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="136dp"
+            android:layout_height="52dp"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/setsInput"
+                android:layout_width="359dp"
+                android:layout_height="50dp"
+                android:elevation="20dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/olog"
+                android:ems="10"
+                android:hint="Sets"
+                android:inputType="number"
+                android:padding="5dp"
+                android:paddingLeft="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="#994E4E4E" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
@@ -92,6 +116,27 @@
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/deletePlanBtn"
+                android:layout_width="298dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/calba"
+                android:text="Delete"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
 
         </LinearLayout>
 
