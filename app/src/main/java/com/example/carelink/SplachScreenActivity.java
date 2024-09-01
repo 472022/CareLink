@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplachScreenActivity extends AppCompatActivity {
@@ -18,11 +20,13 @@ public class SplachScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splach_screen);
 
         ImageView logo = findViewById(R.id.logoImageView);
+        TextView t = findViewById(R.id.textView26);
 
         // Create fade-in animation
         Animation fadeIn = new AlphaAnimation(0, 1);
         fadeIn.setDuration(1500); // Duration of the animation (1.5 seconds)
         logo.startAnimation(fadeIn);
+        t.startAnimation(fadeIn);
 
         // Handler to transition to the next activity after the splash duration
         new Handler().postDelayed(new Runnable() {

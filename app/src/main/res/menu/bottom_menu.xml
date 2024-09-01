@@ -2,21 +2,21 @@
     <item
         android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/ic_baseline_home_24"/>
+        android:icon="@drawable/home"/>
     <item
         android:id="@+id/shorts"
         android:title="Plan"
-        android:icon="@drawable/ic_baseline_whatshot_24"/>
+        android:icon="@drawable/chec"/>
     <item
         android:id="@+id/fab"
         android:title=""
         android:enabled="false"/>
     <item
         android:id="@+id/subscriptions"
-        android:title="Reports"
-        android:icon="@drawable/ic_baseline_subscriptions_24"/>
+        android:title="Remainder"
+        android:icon="@drawable/bell"/>
     <item
         android:id="@+id/library"
         android:title="Profile"
-        android:icon="@drawable/ic_baseline_video_library_24"/>
+        android:icon="@drawable/user"/>
 </menu>
